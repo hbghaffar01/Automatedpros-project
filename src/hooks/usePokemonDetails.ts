@@ -26,7 +26,7 @@ export function usePokemonDetailsByName(name: string | undefined) {
 
 export function useMultiplePokemonDetails(ids: number[]) {
   return useQueries({
-    queries: ids.map(id => ({
+    queries: ids.map((id) => ({
       queryKey: ['pokemon', id],
       queryFn: () => pokemonService.getById(id),
       staleTime: STALE_TIME,

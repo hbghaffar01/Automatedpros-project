@@ -12,41 +12,36 @@ export function DetailPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { toggleFavorite, isFavorite } = useFavorites();
-  
+
   const pokemonId = id ? parseInt(id, 10) : undefined;
   const { data: pokemon, isLoading, error } = usePokemonDetails(pokemonId);
 
   const handleToggleFavorite = () => {
     if (!pokemon) return;
-    
+
     toggleFavorite({
       id: pokemon.id,
       name: pokemon.name,
-      imageUrl: pokemon.sprites.other['official-artwork'].front_default ||
-                pokemon.sprites.front_default
+      imageUrl:
+        pokemon.sprites.other['official-artwork'].front_default ||
+        pokemon.sprites.front_default,
     });
   };
 
   if (error) {
     return (
       <div className="max-w-4xl mx-auto">
-        <Button
-          variant="ghost"
-          onClick={() => navigate('/')}
-          className="mb-6"
-        >
+        <Button variant="ghost" onClick={() => navigate('/')} className="mb-6">
           <ArrowLeft className="w-4 h-4 mr-2" />
           Back to list
         </Button>
-        
+
         <EmptyState
           icon={<AlertCircle className="w-12 h-12" />}
           title="Failed to load Pokémon"
           description={error.message || 'Something went wrong'}
           action={
-            <Button onClick={() => window.location.reload()}>
-              Try again
-            </Button>
+            <Button onClick={() => window.location.reload()}>Try again</Button>
           }
         />
       </div>
@@ -71,7 +66,7 @@ export function DetailPage() {
     ice: 'bg-blue-300',
     dragon: 'bg-purple-800',
     dark: 'bg-gray-800',
-    fairy: 'bg-pink-300'
+    fairy: 'bg-pink-300',
   };
 
   const statNames: Record<string, string> = {
@@ -80,16 +75,12 @@ export function DetailPage() {
     defense: 'Defense',
     'special-attack': 'Sp. Attack',
     'special-defense': 'Sp. Defense',
-    speed: 'Speed'
+    speed: 'Speed',
   };
 
   return (
     <div className="max-w-4xl mx-auto">
-      <Button
-        variant="ghost"
-        onClick={() => navigate('/')}
-        className="mb-6"
-      >
+      <Button variant="ghost" onClick={() => navigate('/')} className="mb-6">
         <ArrowLeft className="w-4 h-4 mr-2" />
         Back to list
       </Button>
@@ -122,10 +113,14 @@ export function DetailPage() {
               <Heart
                 className={cn(
                   'w-5 h-5 mr-2',
-                  pokemon && isFavorite(pokemon.id) && 'fill-current text-red-500'
+                  pokemon &&
+                    isFavorite(pokemon.id) &&
+                    'fill-current text-red-500'
                 )}
               />
-              {pokemon && isFavorite(pokemon.id) ? 'Remove from favorites' : 'Add to favorites'}
+              {pokemon && isFavorite(pokemon.id)
+                ? 'Remove from favorites'
+                : 'Add to favorites'}
             </Button>
           </div>
 
@@ -173,13 +168,17 @@ export function DetailPage() {
 
                 <div className="grid grid-cols-2 gap-4">
                   <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
-                    <p className="text-sm text-gray-500 dark:text-gray-400">Height</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                      Height
+                    </p>
                     <p className="text-xl font-semibold text-gray-900 dark:text-white">
                       {(pokemon.height / 10).toFixed(1)} m
                     </p>
                   </div>
                   <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
-                    <p className="text-sm text-gray-500 dark:text-gray-400">Weight</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                      Weight
+                    </p>
                     <p className="text-xl font-semibold text-gray-900 dark:text-white">
                       {(pokemon.weight / 10).toFixed(1)} kg
                     </p>
@@ -221,7 +220,7 @@ export function DetailPage() {
               {pokemon.stats.map(({ stat, base_stat }) => {
                 const maxStat = 255;
                 const percentage = (base_stat / maxStat) * 100;
-                
+
                 return (
                   <div key={stat.name}>
                     <div className="flex justify-between mb-1">

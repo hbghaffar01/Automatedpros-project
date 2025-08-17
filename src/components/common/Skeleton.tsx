@@ -9,18 +9,18 @@ interface SkeletonProps {
 export function Skeleton({
   className,
   variant = 'rectangular',
-  animation = 'pulse'
+  animation = 'pulse',
 }: SkeletonProps) {
   const animations = {
     pulse: 'animate-pulse',
     wave: 'animate-shimmer',
-    none: ''
+    none: '',
   };
 
   const variants = {
     text: 'rounded',
     circular: 'rounded-full',
-    rectangular: 'rounded-md'
+    rectangular: 'rounded-md',
   };
 
   return (

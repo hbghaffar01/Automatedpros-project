@@ -20,9 +20,9 @@ import type { Pokemon } from '@/types';
 export function HomePage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [useVirtualization, setUseVirtualization] = useState(false);
-  const { ref: loadMoreRef, inView } = useInView({ 
+  const { ref: loadMoreRef, inView } = useInView({
     threshold: 0,
-    rootMargin: '200px'
+    rootMargin: '200px',
   });
   const { toggleFavorite, isFavorite, favoriteIds } = useFavorites();
 
@@ -30,10 +30,11 @@ export function HomePage() {
   const {
     query = '',
     filters = {},
-    sort = { field: 'id', order: 'asc' }
+    sort = { field: 'id', order: 'asc' },
   } = params;
 
-  const { data: searchResults, isLoading: isSearching } = usePokemonSearch(query);
+  const { data: searchResults, isLoading: isSearching } =
+    usePokemonSearch(query);
 
   const {
     data: listData,
@@ -42,14 +43,16 @@ export function HomePage() {
     isFetchingNextPage,
     isLoading: isLoadingList,
     error: listError,
-    refetch: refetchList
+    refetch: refetchList,
   } = useInfinitePokemonList(filters);
 
   const allPokemonIds = useMemo(() => {
     if (!listData?.pages) return [];
-    return listData.pages.flatMap(page =>
-      page.results.map(p => pokemonService.extractIdFromUrl(p.url))
-    ).filter(id => id > 0 && id <= 1025);
+    return listData.pages
+      .flatMap((page) =>
+        page.results.map((p) => pokemonService.extractIdFromUrl(p.url))
+      )
+      .filter((id) => id > 0 && id <= 1025);
   }, [listData]);
 
   const visiblePokemonIds = useMemo(() => {
@@ -58,7 +61,7 @@ export function HomePage() {
     const maxItemsToFetch = ITEMS_PER_PAGE * (currentPageCount + 1);
     return allPokemonIds.slice(0, maxItemsToFetch);
   }, [allPokemonIds, query, filters.favorites, listData?.pages.length]);
-  
+
   const detailsQueries = useMultiplePokemonDetails(visiblePokemonIds);
 
   const favoriteDetailsQueries = useMultiplePokemonDetails(
@@ -72,34 +75,40 @@ export function HomePage() {
 
     if (filters.favorites) {
       return favoriteDetailsQueries
-        .filter(q => q.isSuccess && q.data)
-        .map(q => q.data as Pokemon);
+        .filter((q) => q.isSuccess && q.data)
+        .map((q) => q.data as Pokemon);
     }
 
     return detailsQueries
-      .filter(q => q.isSuccess && q.data)
-      .map(q => q.data as Pokemon);
-  }, [query, searchResults, detailsQueries, filters.favorites, favoriteDetailsQueries]);
+      .filter((q) => q.isSuccess && q.data)
+      .map((q) => q.data as Pokemon);
+  }, [
+    query,
+    searchResults,
+    detailsQueries,
+    filters.favorites,
+    favoriteDetailsQueries,
+  ]);
 
   const filteredPokemon = useMemo(() => {
     let result = [...allPokemon];
 
     if (filters.type) {
-      result = result.filter(p =>
-        p.types.some(t => t.type.name === filters.type)
+      result = result.filter((p) =>
+        p.types.some((t) => t.type.name === filters.type)
       );
     }
 
     result.sort((a, b) => {
       const aValue = a[sort.field];
       const bValue = b[sort.field];
-      
+
       if (typeof aValue === 'string') {
-        return sort.order === 'asc' 
+        return sort.order === 'asc'
           ? aValue.localeCompare(bValue as string)
           : (bValue as string).localeCompare(aValue);
       }
-      
+
       return sort.order === 'asc'
         ? (aValue as number) - (bValue as number)
         : (bValue as number) - (aValue as number);
@@ -108,68 +117,108 @@ export function HomePage() {
     return result;
   }, [allPokemon, filters, sort, isFavorite]);
 
-  const updateUrlParams = useCallback((newParams: typeof params) => {
-    const newSearchParams = buildSearchParams(newParams);
-    setSearchParams(newSearchParams, { replace: true });
-  }, [setSearchParams]);
+  const updateUrlParams = useCallback(
+    (newParams: typeof params) => {
+      const newSearchParams = buildSearchParams(newParams);
+      setSearchParams(newSearchParams, { replace: true });
+    },
+    [setSearchParams]
+  );
 
-  const handleSearchChange = useCallback((newQuery: string) => {
-    updateUrlParams({ ...params, query: newQuery });
-  }, [params, updateUrlParams]);
+  const handleSearchChange = useCallback(
+    (newQuery: string) => {
+      updateUrlParams({ ...params, query: newQuery });
+    },
+    [params, updateUrlParams]
+  );
 
-  const handleFilterChange = useCallback((newFilters: typeof filters) => {
-    updateUrlParams({ ...params, filters: newFilters });
-  }, [params, updateUrlParams]);
+  const handleFilterChange = useCallback(
+    (newFilters: typeof filters) => {
+      updateUrlParams({ ...params, filters: newFilters });
+    },
+    [params, updateUrlParams]
+  );
 
-  const handleSortChange = useCallback((newSort: typeof sort) => {
-    updateUrlParams({ ...params, sort: newSort });
-  }, [params, updateUrlParams]);
+  const handleSortChange = useCallback(
+    (newSort: typeof sort) => {
+      updateUrlParams({ ...params, sort: newSort });
+    },
+    [params, updateUrlParams]
+  );
 
   const handleToggleFavorites = useCallback(() => {
     const newFilters = { ...filters, favorites: !filters.favorites };
     updateUrlParams({ ...params, filters: newFilters });
   }, [params, filters, updateUrlParams]);
 
-  const handleToggleFavorite = useCallback((pokemon: Pokemon) => {
-    toggleFavorite({
-      id: pokemon.id,
-      name: pokemon.name,
-      imageUrl: pokemon.sprites.other['official-artwork'].front_default ||
-                pokemon.sprites.front_default
-    });
-  }, [toggleFavorite]);
+  const handleToggleFavorite = useCallback(
+    (pokemon: Pokemon) => {
+      toggleFavorite({
+        id: pokemon.id,
+        name: pokemon.name,
+        imageUrl:
+          pokemon.sprites.other['official-artwork'].front_default ||
+          pokemon.sprites.front_default,
+      });
+    },
+    [toggleFavorite]
+  );
 
   const handleClearAll = useCallback(() => {
     updateUrlParams({
       query: '',
       filters: {},
       sort: { field: 'id', order: 'asc' },
-      page: 1
+      page: 1,
     });
   }, [updateUrlParams]);
 
   useEffect(() => {
-    if (inView && hasNextPage && !isFetchingNextPage && !query && !filters?.favorites) {
+    if (
+      inView &&
+      hasNextPage &&
+      !isFetchingNextPage &&
+      !query &&
+      !filters?.favorites
+    ) {
       fetchNextPage();
     }
-  }, [inView, hasNextPage, isFetchingNextPage, fetchNextPage, query, filters?.favorites]);
+  }, [
+    inView,
+    hasNextPage,
+    isFetchingNextPage,
+    fetchNextPage,
+    query,
+    filters?.favorites,
+  ]);
 
   useEffect(() => {
     if (!query && !filters?.favorites && hasNextPage && !isFetchingNextPage) {
       const currentPageCount = listData?.pages.length || 0;
       const loadedPokemonCount = currentPageCount * ITEMS_PER_PAGE;
       const displayedPokemonCount = filteredPokemon.length;
-      
+
       if (displayedPokemonCount > loadedPokemonCount * 0.8) {
         fetchNextPage();
       }
     }
-  }, [filteredPokemon.length, listData?.pages.length, hasNextPage, isFetchingNextPage, fetchNextPage, query, filters?.favorites]);
+  }, [
+    filteredPokemon.length,
+    listData?.pages.length,
+    hasNextPage,
+    isFetchingNextPage,
+    fetchNextPage,
+    query,
+    filters?.favorites,
+  ]);
 
-  const isLoadingFavorites = filters.favorites && favoriteDetailsQueries.some(q => q.isLoading);
-  const isLoading = isLoadingList || (query && isSearching) || isLoadingFavorites;
-  const showSkeletons = (isLoading && filteredPokemon.length === 0 && !filters.favorites) || 
-                        (isLoadingFavorites && favoriteIds.size > 0);
+  const isLoadingFavorites =
+    filters.favorites && favoriteDetailsQueries.some((q) => q.isLoading);
+  const isLoading =
+    isLoadingList || (query && isSearching) || isLoadingFavorites;
+  const showSkeletons =
+    (isLoading && filteredPokemon.length === 0 && !filters.favorites) ||
+    (isLoadingFavorites && favoriteIds.size > 0);
 
   if (listError && !query) {
     return (
@@ -178,11 +227,7 @@ export function HomePage() {
           icon={<AlertCircle className="w-12 h-12" />}
           title="Failed to load Pokémon"
           description={listError.message || 'Something went wrong'}
-          action={
-            <Button onClick={() => refetchList()}>
-              Try again
-            </Button>
-          }
+          action={<Button onClick={() => refetchList()}>Try again</Button>}
         />
       </div>
     );
@@ -221,13 +266,12 @@ export function HomePage() {
         />
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {showSkeletons && (
+          {showSkeletons &&
             Array.from({ length: 12 }).map((_, i) => (
               <PokemonCardSkeleton key={i} />
-            ))
-          )}
+            ))}
 
-          {filteredPokemon.map(pokemon => (
+          {filteredPokemon.map((pokemon) => (
             <PokemonCard
               key={pokemon.id}
               pokemon={pokemon}
@@ -241,18 +285,18 @@ export function HomePage() {
       {!isLoading && filteredPokemon.length === 0 && (
         <EmptyState
           title={
-            query 
-              ? 'No Pokémon found' 
-              : filters.favorites 
-              ? 'No favorites yet' 
-              : 'No Pokémon to display'
+            query
+              ? 'No Pokémon found'
+              : filters.favorites
+                ? 'No favorites yet'
+                : 'No Pokémon to display'
           }
           description={
             query
               ? `No results for "${query}"`
               : filters.favorites
-              ? 'Start building your collection by clicking the heart icon on any Pokémon'
-              : 'Try adjusting your filters'
+                ? 'Start building your collection by clicking the heart icon on any Pokémon'
+                : 'Try adjusting your filters'
           }
           action={
             filters.favorites ? undefined : (
@@ -271,13 +315,9 @@ export function HomePage() {
       )}
 
       {!query && !filters.favorites && hasNextPage && (
-        <div
-          ref={loadMoreRef}
-          className="h-10"
-          aria-hidden="true"
-        />
+        <div ref={loadMoreRef} className="h-10" aria-hidden="true" />
       )}
-      
+
       {!query && !filters.favorites && isFetchingNextPage && (
         <div className="flex justify-center py-4">
           <div className="flex items-center space-x-2 text-gray-400 text-sm">

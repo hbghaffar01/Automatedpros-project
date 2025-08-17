@@ -2,66 +2,66 @@
 
 ```yaml
 - banner:
-  - link "Logo Resource Explorer":
-    - /url: /
-    - img "Logo"
-    - heading "Resource Explorer" [level=1]
-  - navigation:
-    - link "Favorites":
-      - /url: /favorites
-      - button "Favorites"
-    - button "Switch to light theme"
+    - link "Logo Resource Explorer":
+        - /url: /
+        - img "Logo"
+        - heading "Resource Explorer" [level=1]
+    - navigation:
+        - link "Favorites":
+            - /url: /favorites
+            - button "Favorites"
+        - button "Switch to light theme"
 - main:
-  - textbox "Search Pokémon"
-  - text: Type
-  - combobox "Filter by type":
-    - option "Select an option" [selected]
-    - option "Normal"
-    - option "Fighting"
-    - option "Flying"
-    - option "Poison"
-    - option "Ground"
-    - option "Rock"
-    - option "Bug"
-    - option "Ghost"
-    - option "Steel"
-    - option "Fire"
-    - option "Water"
-    - option "Grass"
-    - option "Electric"
-    - option "Psychic"
-    - option "Ice"
-    - option "Dragon"
-    - option "Dark"
-    - option "Fairy"
-  - text: Generation
-  - combobox:
-    - option "Select an option" [selected]
-    - option "Generation I"
-    - option "Generation II"
-    - option "Generation III"
-    - option "Generation IV"
-    - option "Generation V"
-    - option "Generation VI"
-    - option "Generation VII"
-    - option "Generation VIII"
-    - option "Generation IX"
-  - text: Sort By
-  - combobox:
-    - option "Select an option"
-    - option "ID (Low to High)" [selected]
-    - option "ID (High to Low)"
-    - option "Name (A-Z)"
-    - option "Name (Z-A)"
-    - option "Height (Low to High)"
-    - option "Height (High to Low)"
-    - option "Weight (Low to High)"
-    - option "Weight (High to Low)"
-  - button "Favorites Only"
-  - heading "No Pokémon to display" [level=3]
-  - paragraph: Try adjusting your filters
-  - button "Clear filters"
-  - text: Loading more Pokémon...
+    - textbox "Search Pokémon"
+    - text: Type
+    - combobox "Filter by type":
+        - option "Select an option" [selected]
+        - option "Normal"
+        - option "Fighting"
+        - option "Flying"
+        - option "Poison"
+        - option "Ground"
+        - option "Rock"
+        - option "Bug"
+        - option "Ghost"
+        - option "Steel"
+        - option "Fire"
+        - option "Water"
+        - option "Grass"
+        - option "Electric"
+        - option "Psychic"
+        - option "Ice"
+        - option "Dragon"
+        - option "Dark"
+        - option "Fairy"
+    - text: Generation
+    - combobox:
+        - option "Select an option" [selected]
+        - option "Generation I"
+        - option "Generation II"
+        - option "Generation III"
+        - option "Generation IV"
+        - option "Generation V"
+        - option "Generation VI"
+        - option "Generation VII"
+        - option "Generation VIII"
+        - option "Generation IX"
+    - text: Sort By
+    - combobox:
+        - option "Select an option"
+        - option "ID (Low to High)" [selected]
+        - option "ID (High to Low)"
+        - option "Name (A-Z)"
+        - option "Name (Z-A)"
+        - option "Height (Low to High)"
+        - option "Height (High to Low)"
+        - option "Weight (Low to High)"
+        - option "Weight (High to Low)"
+    - button "Favorites Only"
+    - heading "No Pokémon to display" [level=3]
+    - paragraph: Try adjusting your filters
+    - button "Clear filters"
+    - text: Loading more Pokémon...
 - button "Open Tanstack query devtools":
-  - img
+    - img
 ```

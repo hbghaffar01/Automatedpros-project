@@ -38,15 +38,15 @@ class RequestBatcher<T> {
 
   private async processBatch() {
     this.timer = null;
-    
+
     const batch = this.queue.splice(0, this.batchSize);
     if (batch.length === 0) return;
 
-    const ids = batch.map(req => req.id);
-    
+    const ids = batch.map((req) => req.id);
+
     try {
       const results = await this.batchProcessor(ids);
-      
+
       batch.forEach((req, index) => {
         if (results[index]) {
           req.resolve(results[index]);
@@ -55,7 +55,7 @@ class RequestBatcher<T> {
         }
       });
     } catch (error) {
-      batch.forEach(req => req.reject(error));
+      batch.forEach((req) => req.reject(error));
     }
 
     if (this.queue.length > 0) {

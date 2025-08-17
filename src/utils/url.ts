@@ -1,10 +1,12 @@
 import type { SearchParams } from '@/types';
 
-export const parseSearchParams = (searchParams: URLSearchParams): Partial<SearchParams> => {
+export const parseSearchParams = (
+  searchParams: URLSearchParams
+): Partial<SearchParams> => {
   const query = searchParams.get('q') || '';
   const page = parseInt(searchParams.get('page') || '1', 10);
-  const sortField = searchParams.get('sortField') as any || 'id';
-  const sortOrder = searchParams.get('sortOrder') as any || 'asc';
+  const sortField = (searchParams.get('sortField') as any) || 'id';
+  const sortOrder = (searchParams.get('sortOrder') as any) || 'asc';
   const type = searchParams.get('type') || undefined;
   const generation = searchParams.get('generation') || undefined;
   const favorites = searchParams.get('favorites') === 'true';
@@ -13,11 +15,13 @@ export const parseSearchParams = (searchParams: URLSearchParams): Partial<Search
     query,
     page,
     sort: { field: sortField, order: sortOrder },
-    filters: { type, generation, favorites }
+    filters: { type, generation, favorites },
   };
 };
 
-export const buildSearchParams = (params: Partial<SearchParams>): URLSearchParams => {
+export const buildSearchParams = (
+  params: Partial<SearchParams>
+): URLSearchParams => {
   const searchParams = new URLSearchParams();
 
   if (params.query) {

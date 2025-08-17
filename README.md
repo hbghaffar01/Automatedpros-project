@@ -1,177 +1,278 @@
-# Resource Explorer - Pokémon Edition
+# AutomatedPros Project
 
-A high-performance React application for exploring Pokémon data with advanced search, filtering, and favorites management.
+A modern React + TypeScript application built with Vite, featuring a responsive UI powered by Tailwind CSS.
 
-## 🚀 Features
+## 📋 Table of Contents
 
-### Core Features
-- **Paginated List View**: Infinite scroll with virtualization for smooth performance
-- **Detail View**: Rich Pokémon details with stats, abilities, and characteristics
-- **Search**: Real-time search with debouncing and request cancellation
-- **Filtering**: Filter by type, generation, and favorites
-- **Sorting**: Sort by ID, name, height, or weight
-- **Favorites**: Persistent favorites with localStorage
-- **URL State Management**: Shareable URLs that preserve search/filter/sort state
-- **Personal Notes**: Add and manage notes for each Pokémon with form validation
-- **E2E Testing**: Playwright tests for critical user flows
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Development](#development)
+- [Testing](#testing)
+- [Build & Deployment](#build--deployment)
+- [Project Structure](#project-structure)
+- [Application Specifications](#application-specifications)
+- [Contributing](#contributing)
+- [License](#license)
 
-### Technical Excellence
-- **Performance Optimized**: 
-  - React Query for intelligent caching and background refetching
-  - Code splitting with lazy loading
-  - Virtualized lists for large datasets (100+ items)
-  - Web Vitals monitoring
-  - Optimistic UI updates
-  - Request batching for efficient API calls
-- **Accessibility**: 
-  - Semantic HTML
-  - ARIA labels and descriptions
-  - Keyboard navigation
-  - Focus management
-- **Error Handling**: 
-  - Error boundaries
-  - Graceful degradation
-  - Retry mechanisms
-- **Theme Support**: Light/dark mode with system preference detection
+## ✨ Features
 
-## 🛠️ Tech Stack
+- ⚡️ **Vite** - Lightning fast HMR and build tool
+- ⚛️ **React 19** - Latest React with improved performance
+- 🎨 **Tailwind CSS** - Utility-first CSS framework
+- 📘 **TypeScript** - Type safety and better developer experience
+- 🚀 **ESLint** - Code quality and consistency
+- 💅 **Prettier** - Automatic code formatting
+- 📱 **Responsive Design** - Mobile-first approach
+- 🔧 **Modern Tooling** - Latest development tools and practices
 
-- **React 19** with TypeScript
-- **Vite** for blazing fast builds
-- **React Router** for navigation
-- **TanStack Query** (React Query) for data fetching
-- **Tailwind CSS** for styling
-- **Axios** with interceptors and abort controllers
-- **Web Vitals** for performance monitoring
-- **Lucide React** for icons
+## 📦 Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- **Node.js** (v18.0.0 or higher)
+- **npm** (v9.0.0 or higher) or **yarn** (v1.22.0 or higher)
+- **Git** for version control
+
+### Verify Installation
+
+```bash
+node --version  # Should output v18.0.0 or higher
+npm --version   # Should output v9.0.0 or higher
+```
+
+## 🚀 Installation
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/yourusername/automatedpros-project.git
+cd automatedpros-project
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Environment Setup (Optional)
+
+If your project uses environment variables, create a `.env` file in the root directory:
+
+```bash
+cp .env.example .env
+```
+
+Then edit `.env` with your configuration values.
+
+## 💻 Development
+
+### Start Development Server
+
+```bash
+npm run dev
+```
+
+The application will be available at `http://localhost:5173/`
+
+### Other Development Commands
+
+```bash
+# Run ESLint
+npm run lint
+
+# Type checking
+npm run type-check
+
+# Format all code with Prettier
+npm run format
+
+# Check code formatting without modifying
+npm run format:check
+```
+
+## 🧪 Testing
+
+### Unit Tests
+
+```bash
+# Run unit tests
+npm run test
+
+# Run tests in watch mode
+npm run test:watch
+
+# Generate coverage report
+npm run test:coverage
+```
+
+### E2E Tests
+
+```bash
+# Run end-to-end tests
+npm run test:e2e
+
+# Open Cypress Test Runner
+npm run cypress:open
+```
+
+### Testing Strategy
+
+- **Unit Tests**: Jest + React Testing Library for component testing
+- **Integration Tests**: Testing component interactions and API calls
+- **E2E Tests**: Cypress for full user flow testing
+- **Coverage Goal**: Maintain minimum 80% code coverage
+
+## 🏗️ Build & Deployment
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+This will:
+
+1. Run TypeScript compiler to check types
+2. Bundle the application using Vite
+3. Optimize assets for production
+4. Output to `dist/` directory
+
+### Preview Production Build
+
+```bash
+npm run preview
+```
+
+### Deployment Options
+
+#### Vercel (Recommended)
+
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy
+vercel
+```
+
+#### Netlify
+
+```bash
+# Build command: npm run build
+# Publish directory: dist
+```
+
+#### Docker
+
+```dockerfile
+FROM node:18-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+COPY . .
+RUN npm run build
+EXPOSE 5173
+CMD ["npm", "run", "preview"]
+```
 
 ## 📁 Project Structure
 
 ```
-src/
-├── components/
-│   ├── common/        # Reusable UI components
-│   ├── features/      # Feature-specific components
-│   └── layout/        # Layout components
-├── constants/         # App constants
-├── hooks/            # Custom React hooks
-├── lib/              # External library configurations
-├── pages/            # Route pages
-├── services/         # API services
-├── types/            # TypeScript types
-├── utils/            # Utility functions
-└── styles/           # Global styles
+automatedpros-project/
+├── public/                # Static assets
+│   └── vite.svg          # Favicon
+├── src/                   # Source code
+│   ├── assets/           # Images, fonts, etc.
+│   ├── components/       # React components
+│   ├── hooks/            # Custom React hooks
+│   ├── utils/            # Utility functions
+│   ├── styles/           # Global styles
+│   ├── App.tsx           # Main App component
+│   ├── main.tsx          # Application entry point
+│   └── vite-env.d.ts     # TypeScript declarations
+├── tests/                 # Test files
+│   ├── unit/            # Unit tests
+│   ├── integration/     # Integration tests
+│   └── e2e/             # End-to-end tests
+├── .eslintrc.js          # ESLint configuration
+├── .gitignore            # Git ignore rules
+├── index.html            # HTML template
+├── package.json          # Dependencies and scripts
+├── postcss.config.js     # PostCSS configuration
+├── tailwind.config.js    # Tailwind CSS configuration
+├── tsconfig.json         # TypeScript configuration
+└── vite.config.ts        # Vite configuration
 ```
 
-## 🚦 Getting Started
+## 📋 Application Specifications
 
-### Prerequisites
-- Node.js 18+
-- npm or yarn
+### Technical Stack
 
-### Installation
+| Technology   | Version | Purpose        |
+| ------------ | ------- | -------------- |
+| React        | 19.1.1  | UI Framework   |
+| TypeScript   | 5.8.3   | Type Safety    |
+| Vite         | 5.4.0   | Build Tool     |
+| Tailwind CSS | 3.4.17  | Styling        |
+| ESLint       | 9.33.0  | Code Quality   |
+| PostCSS      | 8.5.6   | CSS Processing |
 
-```bash
-# Install dependencies
-npm install
+### Browser Support
 
-# Start development server
-npm run dev
+- Chrome (last 2 versions)
+- Firefox (last 2 versions)
+- Safari (last 2 versions)
+- Edge (last 2 versions)
 
-# Build for production
-npm run build
+### Performance Targets
 
-# Preview production build
-npm run preview
-```
+- **First Contentful Paint**: < 1.5s
+- **Time to Interactive**: < 3.5s
+- **Lighthouse Score**: > 90
+- **Bundle Size**: < 200KB (gzipped)
 
-## 🎯 Architecture Decisions
+### Code Standards
 
-### State Management
-- **URL as Source of Truth**: Search params, filters, and pagination state are stored in the URL for shareability
-- **React Query**: Handles server state with intelligent caching and background updates
-- **Local State**: UI state managed with React hooks
-- **Persistent Storage**: Favorites and theme preferences stored in localStorage
+- **TypeScript**: Strict mode enabled
+- **ESLint**: Airbnb configuration with custom rules
+- **Formatting**: Prettier with 2-space indentation
+  - Single quotes for JS/TS
+  - Semicolons required
+  - Trailing commas (ES5)
+  - 80 character line width
+- **Commits**: Conventional Commits specification
+- **Components**: Functional components with hooks
 
-### Performance Optimizations
-1. **Code Splitting**: Routes are lazy loaded to reduce initial bundle size
-2. **Data Fetching**: 
-   - Parallel queries for Pokemon details
-   - Request deduplication
-   - Automatic retries with exponential backoff
-3. **UI Optimizations**:
-   - Memoized components to prevent unnecessary re-renders
-   - Debounced search input
-   - Skeleton loading states
-   - Optimistic updates for favorites
+## 🤝 Contributing
 
-### Error Handling Strategy
-- API errors are caught and transformed into user-friendly messages
-- Network failures trigger automatic retries
-- Error boundaries prevent app crashes
-- Empty states guide users when no data is available
+We welcome contributions! Please follow these steps:
 
-## 🔄 Trade-offs Made
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'feat: add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-1. **Client-side Search**: The PokeAPI doesn't support server-side search, so we fetch and filter client-side. In production, this would be handled server-side for better performance.
+### Development Guidelines
 
-2. **Virtualization Toggle**: Implemented react-window virtualization as an optional feature (toggles on when 100+ items). This gives users choice between familiar grid layout and performance-optimized list.
+- Write unit tests for new features
+- Update documentation as needed
+- Follow the existing code style
+- Ensure all tests pass before submitting PR
 
-3. **Type Safety**: Some API response types are simplified. In a production app, we'd use code generation from OpenAPI specs.
+## 📄 License
 
-4. **E2E Test Coverage**: Implemented basic smoke tests covering core flows. More comprehensive tests would be added in a production environment.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🚀 Future Improvements
+## 🙏 Acknowledgments
 
-If given more time, I would implement:
+- React team for the amazing framework
+- Vite team for the blazing fast build tool
+- Tailwind CSS team for the utility-first CSS framework
+- All contributors who help improve this project
 
-1. **Enhanced Features**:
-   - Advanced filters (multiple types, stats ranges)
-   - Comparison mode for multiple Pokémon
-   - Export favorites to CSV/JSON
-   - PWA capabilities for offline access
+---
 
-2. **Performance**:
-   - Service Worker for offline caching
-   - Image optimization with responsive loading
-   - Bundle size optimization
-   - Server-side rendering with Next.js
-
-3. **Testing**:
-   - Expand E2E test coverage
-   - Unit tests for utilities and hooks
-   - Visual regression testing
-   - Performance testing
-
-4. **Developer Experience**:
-   - Storybook for component documentation
-   - Husky for pre-commit hooks
-   - GitHub Actions for CI/CD
-
-## 📊 Performance Metrics
-
-The app monitors Core Web Vitals:
-- **LCP** (Largest Contentful Paint): < 2.5s
-- **FCP** (First Contentful Paint): < 1.8s
-- **CLS** (Cumulative Layout Shift): < 0.1
-- **INP** (Interaction to Next Paint): < 200ms
-- **TTFB** (Time to First Byte): < 800ms
-
-## 🔧 Commands
-
-```bash
-# Development
-npm run dev           # Start dev server
-npm run build        # Build for production
-npm run preview      # Preview production build
-npm run lint         # Run ESLint
-npm run type-check   # Run TypeScript compiler
-
-# Testing
-npm run test:e2e     # Run Playwright E2E tests
-npm run test:e2e:ui  # Run Playwright tests with UI mode
-```
-
-## 📝 License
-
-MIT
+<p align="center">Made with ❤️ by AutomatedPros Team</p>

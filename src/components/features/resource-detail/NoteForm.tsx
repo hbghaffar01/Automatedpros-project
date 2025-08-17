@@ -7,7 +7,7 @@ import { Button } from '@/components/common/Button';
 import { notesStorage } from '@/utils/storage';
 
 const noteSchema = z.object({
-  note: z.string().max(1000, 'Note must be less than 1000 characters')
+  note: z.string().max(1000, 'Note must be less than 1000 characters'),
 });
 
 type NoteFormData = z.infer<typeof noteSchema>;
@@ -26,12 +26,12 @@ export function NoteForm({ pokemonId, pokemonName }: NoteFormProps) {
     handleSubmit,
     reset,
     watch,
-    formState: { errors, isDirty }
+    formState: { errors, isDirty },
   } = useForm<NoteFormData>({
     resolver: zodResolver(noteSchema),
     defaultValues: {
-      note: ''
-    }
+      note: '',
+    },
   });
 
   const noteValue = watch('note');
@@ -97,8 +97,8 @@ export function NoteForm({ pokemonId, pokemonName }: NoteFormProps) {
       ) : (
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div>
-            <label 
-              htmlFor="note" 
+            <label
+              htmlFor="note"
               className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
             >
               Add a note about {pokemonName}

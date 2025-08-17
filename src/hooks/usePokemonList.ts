@@ -19,10 +19,10 @@ export function useInfinitePokemonList(filters?: FilterOptions) {
     queryFn: ({ pageParam = 1 }) => pokemonService.getList(pageParam, filters),
     getNextPageParam: (lastPage, allPages) => {
       if (!lastPage.next) return undefined;
-      
+
       const loadedCount = allPages.length * ITEMS_PER_PAGE;
       if (loadedCount >= lastPage.count) return undefined;
-      
+
       return allPages.length + 1;
     },
     staleTime: STALE_TIME,

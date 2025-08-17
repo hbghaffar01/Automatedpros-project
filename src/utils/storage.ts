@@ -15,7 +15,7 @@ export const favoritesStorage = {
     const favorites = favoritesStorage.getAll();
     const newFavorite: FavoriteItem = {
       ...item,
-      addedAt: new Date().toISOString()
+      addedAt: new Date().toISOString(),
     };
     favorites.push(newFavorite);
     localStorage.setItem(STORAGE_KEYS.FAVORITES, JSON.stringify(favorites));
@@ -23,18 +23,18 @@ export const favoritesStorage = {
 
   remove: (id: number): void => {
     const favorites = favoritesStorage.getAll();
-    const filtered = favorites.filter(fav => fav.id !== id);
+    const filtered = favorites.filter((fav) => fav.id !== id);
     localStorage.setItem(STORAGE_KEYS.FAVORITES, JSON.stringify(filtered));
   },
 
   exists: (id: number): boolean => {
     const favorites = favoritesStorage.getAll();
-    return favorites.some(fav => fav.id === id);
+    return favorites.some((fav) => fav.id === id);
   },
 
   clear: (): void => {
     localStorage.removeItem(STORAGE_KEYS.FAVORITES);
-  }
+  },
 };
 
 export const themeStorage = {
@@ -49,7 +49,7 @@ export const themeStorage = {
 
   set: (theme: Theme): void => {
     localStorage.setItem(STORAGE_KEYS.THEME, theme);
-  }
+  },
 };
 
 export interface PokemonNote {
@@ -73,18 +73,20 @@ export const notesStorage = {
   set: (pokemonId: number, note: string): void => {
     try {
       const stored = localStorage.getItem(STORAGE_KEYS.NOTES);
-      const notesMap: Record<string, PokemonNote> = stored ? JSON.parse(stored) : {};
-      
+      const notesMap: Record<string, PokemonNote> = stored
+        ? JSON.parse(stored)
+        : {};
+
       if (note.trim()) {
         notesMap[pokemonId] = {
           pokemonId,
           note,
-          updatedAt: new Date().toISOString()
+          updatedAt: new Date().toISOString(),
         };
       } else {
         delete notesMap[pokemonId];
       }
-      
+
       localStorage.setItem(STORAGE_KEYS.NOTES, JSON.stringify(notesMap));
     } catch (error) {
       console.error('Failed to save note:', error);
@@ -95,13 +97,13 @@ export const notesStorage = {
     try {
       const stored = localStorage.getItem(STORAGE_KEYS.NOTES);
       if (!stored) return;
-      
+
       const notesMap: Record<string, PokemonNote> = JSON.parse(stored);
       delete notesMap[pokemonId];
-      
+
       localStorage.setItem(STORAGE_KEYS.NOTES, JSON.stringify(notesMap));
     } catch (error) {
       console.error('Failed to remove note:', error);
     }
-  }
+  },
 };

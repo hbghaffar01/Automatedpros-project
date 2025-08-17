@@ -6,9 +6,15 @@ import { Layout } from '@/components/layout/Layout';
 import { ErrorBoundary } from '@/components/common/ErrorBoundary';
 import { Loader2 } from 'lucide-react';
 
-const HomePage = lazy(() => import('@/pages/HomePage').then(m => ({ default: m.HomePage })));
-const DetailPage = lazy(() => import('@/pages/DetailPage').then(m => ({ default: m.DetailPage })));
-const FavoritesPage = lazy(() => import('@/pages/FavoritesPage').then(m => ({ default: m.FavoritesPage })));
+const HomePage = lazy(() =>
+  import('@/pages/HomePage').then((m) => ({ default: m.HomePage }))
+);
+const DetailPage = lazy(() =>
+  import('@/pages/DetailPage').then((m) => ({ default: m.DetailPage }))
+);
+const FavoritesPage = lazy(() =>
+  import('@/pages/FavoritesPage').then((m) => ({ default: m.FavoritesPage }))
+);
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -47,6 +53,6 @@ const App = () => {
       </QueryClientProvider>
     </ErrorBoundary>
   );
-}
+};
 
-export default App
+export default App;

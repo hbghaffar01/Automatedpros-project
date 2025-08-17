@@ -3,7 +3,7 @@ import { favoritesStorage } from '@/utils/storage';
 import type { FavoriteItem } from '@/types';
 
 export function useFavorites() {
-  const [favorites, setFavorites] = useState<FavoriteItem[]>(() => 
+  const [favorites, setFavorites] = useState<FavoriteItem[]>(() =>
     favoritesStorage.getAll()
   );
 
@@ -18,9 +18,12 @@ export function useFavorites() {
     return () => window.removeEventListener('storage', handleStorageChange);
   }, []);
 
-  const isFavorite = useCallback((id: number) => {
-    return favorites.some(fav => fav.id === id);
-  }, [favorites]);
+  const isFavorite = useCallback(
+    (id: number) => {
+      return favorites.some((fav) => fav.id === id);
+    },
+    [favorites]
+  );
 
   const addFavorite = useCallback((item: Omit<FavoriteItem, 'addedAt'>) => {
     favoritesStorage.add(item);
@@ -32,16 +35,19 @@ export function useFavorites() {
     setFavorites(favoritesStorage.getAll());
   }, []);
 
-  const toggleFavorite = useCallback((item: Omit<FavoriteItem, 'addedAt'>) => {
-    if (isFavorite(item.id)) {
-      removeFavorite(item.id);
-    } else {
-      addFavorite(item);
-    }
-  }, [isFavorite, removeFavorite, addFavorite]);
+  const toggleFavorite = useCallback(
+    (item: Omit<FavoriteItem, 'addedAt'>) => {
+      if (isFavorite(item.id)) {
+        removeFavorite(item.id);
+      } else {
+        addFavorite(item);
+      }
+    },
+    [isFavorite, removeFavorite, addFavorite]
+  );
 
-  const favoriteIds = useMemo(() => 
-    new Set(favorites.map(f => f.id)), 
+  const favoriteIds = useMemo(
+    () => new Set(favorites.map((f) => f.id)),
     [favorites]
   );
 
@@ -51,6 +57,6 @@ export function useFavorites() {
     addFavorite,
     removeFavorite,
     toggleFavorite,
-    isFavorite
+    isFavorite,
   };
 }

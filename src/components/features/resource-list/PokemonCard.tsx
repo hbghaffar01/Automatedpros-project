@@ -14,10 +14,11 @@ interface PokemonCardProps {
 export const PokemonCard = memo(function PokemonCard({
   pokemon,
   isFavorite,
-  onToggleFavorite
+  onToggleFavorite,
 }: PokemonCardProps) {
-  const imageUrl = pokemon.sprites.other['official-artwork'].front_default || 
-                   pokemon.sprites.front_default;
+  const imageUrl =
+    pokemon.sprites.other['official-artwork'].front_default ||
+    pokemon.sprites.front_default;
 
   const typeColors: Record<string, string> = {
     normal: 'bg-gray-400',
@@ -37,7 +38,7 @@ export const PokemonCard = memo(function PokemonCard({
     ice: 'bg-blue-300',
     dragon: 'bg-purple-800',
     dark: 'bg-gray-800',
-    fairy: 'bg-pink-300'
+    fairy: 'bg-pink-300',
   };
 
   const handleFavoriteClick = (e: React.MouseEvent) => {
@@ -80,7 +81,7 @@ export const PokemonCard = memo(function PokemonCard({
           <Heart className={cn('w-5 h-5', isFavorite && 'fill-current')} />
         </Button>
       </div>
-      
+
       <div className="p-4">
         <div className="text-sm text-gray-500 dark:text-gray-400 mb-1">
           #{String(pokemon.id).padStart(3, '0')}

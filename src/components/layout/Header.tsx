@@ -10,7 +10,7 @@ export function Header() {
   const themeIcons = {
     light: <Sun className="w-4 h-4" />,
     dark: <Moon className="w-4 h-4" />,
-    system: <Monitor className="w-4 h-4" />
+    system: <Monitor className="w-4 h-4" />,
   };
 
   const cycleTheme = () => {
@@ -25,11 +25,7 @@ export function Header() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center space-x-2">
-            <img
-              src="/logo.svg"
-              alt="Logo"
-              className="w-8 h-8"
-            />
+            <img src="/logo.svg" alt="Logo" className="w-8 h-8" />
             <h1 className="text-xl font-bold text-gray-900 dark:text-white">
               Resource Explorer
             </h1>

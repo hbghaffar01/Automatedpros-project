@@ -2,482 +2,482 @@
 
 ```yaml
 - banner:
-  - link "Logo Resource Explorer":
-    - /url: /
-    - img "Logo"
-    - heading "Resource Explorer" [level=1]
-  - navigation:
-    - link "Favorites":
-      - /url: /favorites
-      - button "Favorites"
-    - button "Switch to light theme"
+    - link "Logo Resource Explorer":
+        - /url: /
+        - img "Logo"
+        - heading "Resource Explorer" [level=1]
+    - navigation:
+        - link "Favorites":
+            - /url: /favorites
+            - button "Favorites"
+        - button "Switch to light theme"
 - main:
-  - textbox "Search Pokémon"
-  - text: Type
-  - combobox "Filter by type":
-    - option "Select an option" [selected]
-    - option "Normal"
-    - option "Fighting"
-    - option "Flying"
-    - option "Poison"
-    - option "Ground"
-    - option "Rock"
-    - option "Bug"
-    - option "Ghost"
-    - option "Steel"
-    - option "Fire"
-    - option "Water"
-    - option "Grass"
-    - option "Electric"
-    - option "Psychic"
-    - option "Ice"
-    - option "Dragon"
-    - option "Dark"
-    - option "Fairy"
-  - text: Generation
-  - combobox:
-    - option "Select an option" [selected]
-    - option "Generation I"
-    - option "Generation II"
-    - option "Generation III"
-    - option "Generation IV"
-    - option "Generation V"
-    - option "Generation VI"
-    - option "Generation VII"
-    - option "Generation VIII"
-    - option "Generation IX"
-  - text: Sort By
-  - combobox:
-    - option "Select an option"
-    - option "ID (Low to High)" [selected]
-    - option "ID (High to Low)"
-    - option "Name (A-Z)"
-    - option "Name (Z-A)"
-    - option "Height (Low to High)"
-    - option "Height (High to Low)"
-    - option "Weight (Low to High)"
-    - option "Weight (High to Low)"
-  - button "Favorites Only"
-  - 'link "bulbasaur Add to favorites #001 bulbasaur grass poison"':
-    - /url: /pokemon/1
-    - img "bulbasaur"
-    - button "Add to favorites"
-    - text: "#001"
-    - heading "bulbasaur" [level=3]
-    - text: grass poison
-  - 'link "ivysaur Add to favorites #002 ivysaur grass poison"':
-    - /url: /pokemon/2
-    - img "ivysaur"
-    - button "Add to favorites"
-    - text: "#002"
-    - heading "ivysaur" [level=3]
-    - text: grass poison
-  - 'link "venusaur Add to favorites #003 venusaur grass poison"':
-    - /url: /pokemon/3
-    - img "venusaur"
-    - button "Add to favorites"
-    - text: "#003"
-    - heading "venusaur" [level=3]
-    - text: grass poison
-  - 'link "charmander Add to favorites #004 charmander fire"':
-    - /url: /pokemon/4
-    - img "charmander"
-    - button "Add to favorites"
-    - text: "#004"
-    - heading "charmander" [level=3]
-    - text: fire
-  - 'link "charmeleon Add to favorites #005 charmeleon fire"':
-    - /url: /pokemon/5
-    - img "charmeleon"
-    - button "Add to favorites"
-    - text: "#005"
-    - heading "charmeleon" [level=3]
-    - text: fire
-  - 'link "charizard Add to favorites #006 charizard fire flying"':
-    - /url: /pokemon/6
-    - img "charizard"
-    - button "Add to favorites"
-    - text: "#006"
-    - heading "charizard" [level=3]
-    - text: fire flying
-  - 'link "squirtle Add to favorites #007 squirtle water"':
-    - /url: /pokemon/7
-    - img "squirtle"
-    - button "Add to favorites"
-    - text: "#007"
-    - heading "squirtle" [level=3]
-    - text: water
-  - 'link "wartortle Add to favorites #008 wartortle water"':
-    - /url: /pokemon/8
-    - img "wartortle"
-    - button "Add to favorites"
-    - text: "#008"
-    - heading "wartortle" [level=3]
-    - text: water
-  - 'link "blastoise Add to favorites #009 blastoise water"':
-    - /url: /pokemon/9
-    - img "blastoise"
-    - button "Add to favorites"
-    - text: "#009"
-    - heading "blastoise" [level=3]
-    - text: water
-  - 'link "caterpie Add to favorites #010 caterpie bug"':
-    - /url: /pokemon/10
-    - img "caterpie"
-    - button "Add to favorites"
-    - text: "#010"
-    - heading "caterpie" [level=3]
-    - text: bug
-  - 'link "metapod Add to favorites #011 metapod bug"':
-    - /url: /pokemon/11
-    - img "metapod"
-    - button "Add to favorites"
-    - text: "#011"
-    - heading "metapod" [level=3]
-    - text: bug
-  - 'link "butterfree Add to favorites #012 butterfree bug flying"':
-    - /url: /pokemon/12
-    - img "butterfree"
-    - button "Add to favorites"
-    - text: "#012"
-    - heading "butterfree" [level=3]
-    - text: bug flying
-  - 'link "weedle Add to favorites #013 weedle bug poison"':
-    - /url: /pokemon/13
-    - img "weedle"
-    - button "Add to favorites"
-    - text: "#013"
-    - heading "weedle" [level=3]
-    - text: bug poison
-  - 'link "kakuna Add to favorites #014 kakuna bug poison"':
-    - /url: /pokemon/14
-    - img "kakuna"
-    - button "Add to favorites"
-    - text: "#014"
-    - heading "kakuna" [level=3]
-    - text: bug poison
-  - 'link "beedrill Add to favorites #015 beedrill bug poison"':
-    - /url: /pokemon/15
-    - img "beedrill"
-    - button "Add to favorites"
-    - text: "#015"
-    - heading "beedrill" [level=3]
-    - text: bug poison
-  - 'link "pidgey Add to favorites #016 pidgey normal flying"':
-    - /url: /pokemon/16
-    - img "pidgey"
-    - button "Add to favorites"
-    - text: "#016"
-    - heading "pidgey" [level=3]
-    - text: normal flying
-  - 'link "pidgeotto Add to favorites #017 pidgeotto normal flying"':
-    - /url: /pokemon/17
-    - img "pidgeotto"
-    - button "Add to favorites"
-    - text: "#017"
-    - heading "pidgeotto" [level=3]
-    - text: normal flying
-  - 'link "pidgeot Add to favorites #018 pidgeot normal flying"':
-    - /url: /pokemon/18
-    - img "pidgeot"
-    - button "Add to favorites"
-    - text: "#018"
-    - heading "pidgeot" [level=3]
-    - text: normal flying
-  - 'link "rattata Add to favorites #019 rattata normal"':
-    - /url: /pokemon/19
-    - img "rattata"
-    - button "Add to favorites"
-    - text: "#019"
-    - heading "rattata" [level=3]
-    - text: normal
-  - 'link "raticate Add to favorites #020 raticate normal"':
-    - /url: /pokemon/20
-    - img "raticate"
-    - button "Add to favorites"
-    - text: "#020"
-    - heading "raticate" [level=3]
-    - text: normal
-  - 'link "spearow Add to favorites #021 spearow normal flying"':
-    - /url: /pokemon/21
-    - img "spearow"
-    - button "Add to favorites"
-    - text: "#021"
-    - heading "spearow" [level=3]
-    - text: normal flying
-  - 'link "fearow Add to favorites #022 fearow normal flying"':
-    - /url: /pokemon/22
-    - img "fearow"
-    - button "Add to favorites"
-    - text: "#022"
-    - heading "fearow" [level=3]
-    - text: normal flying
-  - 'link "ekans Add to favorites #023 ekans poison"':
-    - /url: /pokemon/23
-    - img "ekans"
-    - button "Add to favorites"
-    - text: "#023"
-    - heading "ekans" [level=3]
-    - text: poison
-  - 'link "arbok Add to favorites #024 arbok poison"':
-    - /url: /pokemon/24
-    - img "arbok"
-    - button "Add to favorites"
-    - text: "#024"
-    - heading "arbok" [level=3]
-    - text: poison
-  - 'link "pikachu Add to favorites #025 pikachu electric"':
-    - /url: /pokemon/25
-    - img "pikachu"
-    - button "Add to favorites"
-    - text: "#025"
-    - heading "pikachu" [level=3]
-    - text: electric
-  - 'link "raichu Add to favorites #026 raichu electric"':
-    - /url: /pokemon/26
-    - img "raichu"
-    - button "Add to favorites"
-    - text: "#026"
-    - heading "raichu" [level=3]
-    - text: electric
-  - 'link "sandshrew Add to favorites #027 sandshrew ground"':
-    - /url: /pokemon/27
-    - img "sandshrew"
-    - button "Add to favorites"
-    - text: "#027"
-    - heading "sandshrew" [level=3]
-    - text: ground
-  - 'link "sandslash Add to favorites #028 sandslash ground"':
-    - /url: /pokemon/28
-    - img "sandslash"
-    - button "Add to favorites"
-    - text: "#028"
-    - heading "sandslash" [level=3]
-    - text: ground
-  - 'link "nidoran-f Add to favorites #029 nidoran-f poison"':
-    - /url: /pokemon/29
-    - img "nidoran-f"
-    - button "Add to favorites"
-    - text: "#029"
-    - heading "nidoran-f" [level=3]
-    - text: poison
-  - 'link "nidorina Add to favorites #030 nidorina poison"':
-    - /url: /pokemon/30
-    - img "nidorina"
-    - button "Add to favorites"
-    - text: "#030"
-    - heading "nidorina" [level=3]
-    - text: poison
-  - 'link "nidoqueen Add to favorites #031 nidoqueen poison ground"':
-    - /url: /pokemon/31
-    - img "nidoqueen"
-    - button "Add to favorites"
-    - text: "#031"
-    - heading "nidoqueen" [level=3]
-    - text: poison ground
-  - 'link "nidoran-m Add to favorites #032 nidoran-m poison"':
-    - /url: /pokemon/32
-    - img "nidoran-m"
-    - button "Add to favorites"
-    - text: "#032"
-    - heading "nidoran-m" [level=3]
-    - text: poison
-  - 'link "nidorino Add to favorites #033 nidorino poison"':
-    - /url: /pokemon/33
-    - img "nidorino"
-    - button "Add to favorites"
-    - text: "#033"
-    - heading "nidorino" [level=3]
-    - text: poison
-  - 'link "nidoking Add to favorites #034 nidoking poison ground"':
-    - /url: /pokemon/34
-    - img "nidoking"
-    - button "Add to favorites"
-    - text: "#034"
-    - heading "nidoking" [level=3]
-    - text: poison ground
-  - 'link "clefairy Add to favorites #035 clefairy fairy"':
-    - /url: /pokemon/35
-    - img "clefairy"
-    - button "Add to favorites"
-    - text: "#035"
-    - heading "clefairy" [level=3]
-    - text: fairy
-  - 'link "clefable Add to favorites #036 clefable fairy"':
-    - /url: /pokemon/36
-    - img "clefable"
-    - button "Add to favorites"
-    - text: "#036"
-    - heading "clefable" [level=3]
-    - text: fairy
-  - 'link "vulpix Add to favorites #037 vulpix fire"':
-    - /url: /pokemon/37
-    - img "vulpix"
-    - button "Add to favorites"
-    - text: "#037"
-    - heading "vulpix" [level=3]
-    - text: fire
-  - 'link "ninetales Add to favorites #038 ninetales fire"':
-    - /url: /pokemon/38
-    - img "ninetales"
-    - button "Add to favorites"
-    - text: "#038"
-    - heading "ninetales" [level=3]
-    - text: fire
-  - 'link "jigglypuff Add to favorites #039 jigglypuff normal fairy"':
-    - /url: /pokemon/39
-    - img "jigglypuff"
-    - button "Add to favorites"
-    - text: "#039"
-    - heading "jigglypuff" [level=3]
-    - text: normal fairy
-  - 'link "wigglytuff Add to favorites #040 wigglytuff normal fairy"':
-    - /url: /pokemon/40
-    - img "wigglytuff"
-    - button "Add to favorites"
-    - text: "#040"
-    - heading "wigglytuff" [level=3]
-    - text: normal fairy
-  - 'link "zubat Add to favorites #041 zubat poison flying"':
-    - /url: /pokemon/41
-    - img "zubat"
-    - button "Add to favorites"
-    - text: "#041"
-    - heading "zubat" [level=3]
-    - text: poison flying
-  - 'link "golbat Add to favorites #042 golbat poison flying"':
-    - /url: /pokemon/42
-    - img "golbat"
-    - button "Add to favorites"
-    - text: "#042"
-    - heading "golbat" [level=3]
-    - text: poison flying
-  - 'link "oddish Add to favorites #043 oddish grass poison"':
-    - /url: /pokemon/43
-    - img "oddish"
-    - button "Add to favorites"
-    - text: "#043"
-    - heading "oddish" [level=3]
-    - text: grass poison
-  - 'link "gloom Add to favorites #044 gloom grass poison"':
-    - /url: /pokemon/44
-    - img "gloom"
-    - button "Add to favorites"
-    - text: "#044"
-    - heading "gloom" [level=3]
-    - text: grass poison
-  - 'link "vileplume Add to favorites #045 vileplume grass poison"':
-    - /url: /pokemon/45
-    - img "vileplume"
-    - button "Add to favorites"
-    - text: "#045"
-    - heading "vileplume" [level=3]
-    - text: grass poison
-  - 'link "paras Add to favorites #046 paras bug grass"':
-    - /url: /pokemon/46
-    - img "paras"
-    - button "Add to favorites"
-    - text: "#046"
-    - heading "paras" [level=3]
-    - text: bug grass
-  - 'link "parasect Add to favorites #047 parasect bug grass"':
-    - /url: /pokemon/47
-    - img "parasect"
-    - button "Add to favorites"
-    - text: "#047"
-    - heading "parasect" [level=3]
-    - text: bug grass
-  - 'link "venonat Add to favorites #048 venonat bug poison"':
-    - /url: /pokemon/48
-    - img "venonat"
-    - button "Add to favorites"
-    - text: "#048"
-    - heading "venonat" [level=3]
-    - text: bug poison
-  - 'link "venomoth Add to favorites #049 venomoth bug poison"':
-    - /url: /pokemon/49
-    - img "venomoth"
-    - button "Add to favorites"
-    - text: "#049"
-    - heading "venomoth" [level=3]
-    - text: bug poison
-  - 'link "diglett Add to favorites #050 diglett ground"':
-    - /url: /pokemon/50
-    - img "diglett"
-    - button "Add to favorites"
-    - text: "#050"
-    - heading "diglett" [level=3]
-    - text: ground
-  - 'link "dugtrio Add to favorites #051 dugtrio ground"':
-    - /url: /pokemon/51
-    - img "dugtrio"
-    - button "Add to favorites"
-    - text: "#051"
-    - heading "dugtrio" [level=3]
-    - text: ground
-  - 'link "meowth Add to favorites #052 meowth normal"':
-    - /url: /pokemon/52
-    - img "meowth"
-    - button "Add to favorites"
-    - text: "#052"
-    - heading "meowth" [level=3]
-    - text: normal
-  - 'link "persian Add to favorites #053 persian normal"':
-    - /url: /pokemon/53
-    - img "persian"
-    - button "Add to favorites"
-    - text: "#053"
-    - heading "persian" [level=3]
-    - text: normal
-  - 'link "psyduck Add to favorites #054 psyduck water"':
-    - /url: /pokemon/54
-    - img "psyduck"
-    - button "Add to favorites"
-    - text: "#054"
-    - heading "psyduck" [level=3]
-    - text: water
-  - 'link "golduck Add to favorites #055 golduck water"':
-    - /url: /pokemon/55
-    - img "golduck"
-    - button "Add to favorites"
-    - text: "#055"
-    - heading "golduck" [level=3]
-    - text: water
-  - 'link "mankey Add to favorites #056 mankey fighting"':
-    - /url: /pokemon/56
-    - img "mankey"
-    - button "Add to favorites"
-    - text: "#056"
-    - heading "mankey" [level=3]
-    - text: fighting
-  - 'link "primeape Add to favorites #057 primeape fighting"':
-    - /url: /pokemon/57
-    - img "primeape"
-    - button "Add to favorites"
-    - text: "#057"
-    - heading "primeape" [level=3]
-    - text: fighting
-  - 'link "growlithe Add to favorites #058 growlithe fire"':
-    - /url: /pokemon/58
-    - img "growlithe"
-    - button "Add to favorites"
-    - text: "#058"
-    - heading "growlithe" [level=3]
-    - text: fire
-  - 'link "arcanine Add to favorites #059 arcanine fire"':
-    - /url: /pokemon/59
-    - img "arcanine"
-    - button "Add to favorites"
-    - text: "#059"
-    - heading "arcanine" [level=3]
-    - text: fire
-  - 'link "poliwag Add to favorites #060 poliwag water"':
-    - /url: /pokemon/60
-    - img "poliwag"
-    - button "Add to favorites"
-    - text: "#060"
-    - heading "poliwag" [level=3]
-    - text: water
+    - textbox "Search Pokémon"
+    - text: Type
+    - combobox "Filter by type":
+        - option "Select an option" [selected]
+        - option "Normal"
+        - option "Fighting"
+        - option "Flying"
+        - option "Poison"
+        - option "Ground"
+        - option "Rock"
+        - option "Bug"
+        - option "Ghost"
+        - option "Steel"
+        - option "Fire"
+        - option "Water"
+        - option "Grass"
+        - option "Electric"
+        - option "Psychic"
+        - option "Ice"
+        - option "Dragon"
+        - option "Dark"
+        - option "Fairy"
+    - text: Generation
+    - combobox:
+        - option "Select an option" [selected]
+        - option "Generation I"
+        - option "Generation II"
+        - option "Generation III"
+        - option "Generation IV"
+        - option "Generation V"
+        - option "Generation VI"
+        - option "Generation VII"
+        - option "Generation VIII"
+        - option "Generation IX"
+    - text: Sort By
+    - combobox:
+        - option "Select an option"
+        - option "ID (Low to High)" [selected]
+        - option "ID (High to Low)"
+        - option "Name (A-Z)"
+        - option "Name (Z-A)"
+        - option "Height (Low to High)"
+        - option "Height (High to Low)"
+        - option "Weight (Low to High)"
+        - option "Weight (High to Low)"
+    - button "Favorites Only"
+    - 'link "bulbasaur Add to favorites #001 bulbasaur grass poison"':
+        - /url: /pokemon/1
+        - img "bulbasaur"
+        - button "Add to favorites"
+        - text: '#001'
+        - heading "bulbasaur" [level=3]
+        - text: grass poison
+    - 'link "ivysaur Add to favorites #002 ivysaur grass poison"':
+        - /url: /pokemon/2
+        - img "ivysaur"
+        - button "Add to favorites"
+        - text: '#002'
+        - heading "ivysaur" [level=3]
+        - text: grass poison
+    - 'link "venusaur Add to favorites #003 venusaur grass poison"':
+        - /url: /pokemon/3
+        - img "venusaur"
+        - button "Add to favorites"
+        - text: '#003'
+        - heading "venusaur" [level=3]
+        - text: grass poison
+    - 'link "charmander Add to favorites #004 charmander fire"':
+        - /url: /pokemon/4
+        - img "charmander"
+        - button "Add to favorites"
+        - text: '#004'
+        - heading "charmander" [level=3]
+        - text: fire
+    - 'link "charmeleon Add to favorites #005 charmeleon fire"':
+        - /url: /pokemon/5
+        - img "charmeleon"
+        - button "Add to favorites"
+        - text: '#005'
+        - heading "charmeleon" [level=3]
+        - text: fire
+    - 'link "charizard Add to favorites #006 charizard fire flying"':
+        - /url: /pokemon/6
+        - img "charizard"
+        - button "Add to favorites"
+        - text: '#006'
+        - heading "charizard" [level=3]
+        - text: fire flying
+    - 'link "squirtle Add to favorites #007 squirtle water"':
+        - /url: /pokemon/7
+        - img "squirtle"
+        - button "Add to favorites"
+        - text: '#007'
+        - heading "squirtle" [level=3]
+        - text: water
+    - 'link "wartortle Add to favorites #008 wartortle water"':
+        - /url: /pokemon/8
+        - img "wartortle"
+        - button "Add to favorites"
+        - text: '#008'
+        - heading "wartortle" [level=3]
+        - text: water
+    - 'link "blastoise Add to favorites #009 blastoise water"':
+        - /url: /pokemon/9
+        - img "blastoise"
+        - button "Add to favorites"
+        - text: '#009'
+        - heading "blastoise" [level=3]
+        - text: water
+    - 'link "caterpie Add to favorites #010 caterpie bug"':
+        - /url: /pokemon/10
+        - img "caterpie"
+        - button "Add to favorites"
+        - text: '#010'
+        - heading "caterpie" [level=3]
+        - text: bug
+    - 'link "metapod Add to favorites #011 metapod bug"':
+        - /url: /pokemon/11
+        - img "metapod"
+        - button "Add to favorites"
+        - text: '#011'
+        - heading "metapod" [level=3]
+        - text: bug
+    - 'link "butterfree Add to favorites #012 butterfree bug flying"':
+        - /url: /pokemon/12
+        - img "butterfree"
+        - button "Add to favorites"
+        - text: '#012'
+        - heading "butterfree" [level=3]
+        - text: bug flying
+    - 'link "weedle Add to favorites #013 weedle bug poison"':
+        - /url: /pokemon/13
+        - img "weedle"
+        - button "Add to favorites"
+        - text: '#013'
+        - heading "weedle" [level=3]
+        - text: bug poison
+    - 'link "kakuna Add to favorites #014 kakuna bug poison"':
+        - /url: /pokemon/14
+        - img "kakuna"
+        - button "Add to favorites"
+        - text: '#014'
+        - heading "kakuna" [level=3]
+        - text: bug poison
+    - 'link "beedrill Add to favorites #015 beedrill bug poison"':
+        - /url: /pokemon/15
+        - img "beedrill"
+        - button "Add to favorites"
+        - text: '#015'
+        - heading "beedrill" [level=3]
+        - text: bug poison
+    - 'link "pidgey Add to favorites #016 pidgey normal flying"':
+        - /url: /pokemon/16
+        - img "pidgey"
+        - button "Add to favorites"
+        - text: '#016'
+        - heading "pidgey" [level=3]
+        - text: normal flying
+    - 'link "pidgeotto Add to favorites #017 pidgeotto normal flying"':
+        - /url: /pokemon/17
+        - img "pidgeotto"
+        - button "Add to favorites"
+        - text: '#017'
+        - heading "pidgeotto" [level=3]
+        - text: normal flying
+    - 'link "pidgeot Add to favorites #018 pidgeot normal flying"':
+        - /url: /pokemon/18
+        - img "pidgeot"
+        - button "Add to favorites"
+        - text: '#018'
+        - heading "pidgeot" [level=3]
+        - text: normal flying
+    - 'link "rattata Add to favorites #019 rattata normal"':
+        - /url: /pokemon/19
+        - img "rattata"
+        - button "Add to favorites"
+        - text: '#019'
+        - heading "rattata" [level=3]
+        - text: normal
+    - 'link "raticate Add to favorites #020 raticate normal"':
+        - /url: /pokemon/20
+        - img "raticate"
+        - button "Add to favorites"
+        - text: '#020'
+        - heading "raticate" [level=3]
+        - text: normal
+    - 'link "spearow Add to favorites #021 spearow normal flying"':
+        - /url: /pokemon/21
+        - img "spearow"
+        - button "Add to favorites"
+        - text: '#021'
+        - heading "spearow" [level=3]
+        - text: normal flying
+    - 'link "fearow Add to favorites #022 fearow normal flying"':
+        - /url: /pokemon/22
+        - img "fearow"
+        - button "Add to favorites"
+        - text: '#022'
+        - heading "fearow" [level=3]
+        - text: normal flying
+    - 'link "ekans Add to favorites #023 ekans poison"':
+        - /url: /pokemon/23
+        - img "ekans"
+        - button "Add to favorites"
+        - text: '#023'
+        - heading "ekans" [level=3]
+        - text: poison
+    - 'link "arbok Add to favorites #024 arbok poison"':
+        - /url: /pokemon/24
+        - img "arbok"
+        - button "Add to favorites"
+        - text: '#024'
+        - heading "arbok" [level=3]
+        - text: poison
+    - 'link "pikachu Add to favorites #025 pikachu electric"':
+        - /url: /pokemon/25
+        - img "pikachu"
+        - button "Add to favorites"
+        - text: '#025'
+        - heading "pikachu" [level=3]
+        - text: electric
+    - 'link "raichu Add to favorites #026 raichu electric"':
+        - /url: /pokemon/26
+        - img "raichu"
+        - button "Add to favorites"
+        - text: '#026'
+        - heading "raichu" [level=3]
+        - text: electric
+    - 'link "sandshrew Add to favorites #027 sandshrew ground"':
+        - /url: /pokemon/27
+        - img "sandshrew"
+        - button "Add to favorites"
+        - text: '#027'
+        - heading "sandshrew" [level=3]
+        - text: ground
+    - 'link "sandslash Add to favorites #028 sandslash ground"':
+        - /url: /pokemon/28
+        - img "sandslash"
+        - button "Add to favorites"
+        - text: '#028'
+        - heading "sandslash" [level=3]
+        - text: ground
+    - 'link "nidoran-f Add to favorites #029 nidoran-f poison"':
+        - /url: /pokemon/29
+        - img "nidoran-f"
+        - button "Add to favorites"
+        - text: '#029'
+        - heading "nidoran-f" [level=3]
+        - text: poison
+    - 'link "nidorina Add to favorites #030 nidorina poison"':
+        - /url: /pokemon/30
+        - img "nidorina"
+        - button "Add to favorites"
+        - text: '#030'
+        - heading "nidorina" [level=3]
+        - text: poison
+    - 'link "nidoqueen Add to favorites #031 nidoqueen poison ground"':
+        - /url: /pokemon/31
+        - img "nidoqueen"
+        - button "Add to favorites"
+        - text: '#031'
+        - heading "nidoqueen" [level=3]
+        - text: poison ground
+    - 'link "nidoran-m Add to favorites #032 nidoran-m poison"':
+        - /url: /pokemon/32
+        - img "nidoran-m"
+        - button "Add to favorites"
+        - text: '#032'
+        - heading "nidoran-m" [level=3]
+        - text: poison
+    - 'link "nidorino Add to favorites #033 nidorino poison"':
+        - /url: /pokemon/33
+        - img "nidorino"
+        - button "Add to favorites"
+        - text: '#033'
+        - heading "nidorino" [level=3]
+        - text: poison
+    - 'link "nidoking Add to favorites #034 nidoking poison ground"':
+        - /url: /pokemon/34
+        - img "nidoking"
+        - button "Add to favorites"
+        - text: '#034'
+        - heading "nidoking" [level=3]
+        - text: poison ground
+    - 'link "clefairy Add to favorites #035 clefairy fairy"':
+        - /url: /pokemon/35
+        - img "clefairy"
+        - button "Add to favorites"
+        - text: '#035'
+        - heading "clefairy" [level=3]
+        - text: fairy
+    - 'link "clefable Add to favorites #036 clefable fairy"':
+        - /url: /pokemon/36
+        - img "clefable"
+        - button "Add to favorites"
+        - text: '#036'
+        - heading "clefable" [level=3]
+        - text: fairy
+    - 'link "vulpix Add to favorites #037 vulpix fire"':
+        - /url: /pokemon/37
+        - img "vulpix"
+        - button "Add to favorites"
+        - text: '#037'
+        - heading "vulpix" [level=3]
+        - text: fire
+    - 'link "ninetales Add to favorites #038 ninetales fire"':
+        - /url: /pokemon/38
+        - img "ninetales"
+        - button "Add to favorites"
+        - text: '#038'
+        - heading "ninetales" [level=3]
+        - text: fire
+    - 'link "jigglypuff Add to favorites #039 jigglypuff normal fairy"':
+        - /url: /pokemon/39
+        - img "jigglypuff"
+        - button "Add to favorites"
+        - text: '#039'
+        - heading "jigglypuff" [level=3]
+        - text: normal fairy
+    - 'link "wigglytuff Add to favorites #040 wigglytuff normal fairy"':
+        - /url: /pokemon/40
+        - img "wigglytuff"
+        - button "Add to favorites"
+        - text: '#040'
+        - heading "wigglytuff" [level=3]
+        - text: normal fairy
+    - 'link "zubat Add to favorites #041 zubat poison flying"':
+        - /url: /pokemon/41
+        - img "zubat"
+        - button "Add to favorites"
+        - text: '#041'
+        - heading "zubat" [level=3]
+        - text: poison flying
+    - 'link "golbat Add to favorites #042 golbat poison flying"':
+        - /url: /pokemon/42
+        - img "golbat"
+        - button "Add to favorites"
+        - text: '#042'
+        - heading "golbat" [level=3]
+        - text: poison flying
+    - 'link "oddish Add to favorites #043 oddish grass poison"':
+        - /url: /pokemon/43
+        - img "oddish"
+        - button "Add to favorites"
+        - text: '#043'
+        - heading "oddish" [level=3]
+        - text: grass poison
+    - 'link "gloom Add to favorites #044 gloom grass poison"':
+        - /url: /pokemon/44
+        - img "gloom"
+        - button "Add to favorites"
+        - text: '#044'
+        - heading "gloom" [level=3]
+        - text: grass poison
+    - 'link "vileplume Add to favorites #045 vileplume grass poison"':
+        - /url: /pokemon/45
+        - img "vileplume"
+        - button "Add to favorites"
+        - text: '#045'
+        - heading "vileplume" [level=3]
+        - text: grass poison
+    - 'link "paras Add to favorites #046 paras bug grass"':
+        - /url: /pokemon/46
+        - img "paras"
+        - button "Add to favorites"
+        - text: '#046'
+        - heading "paras" [level=3]
+        - text: bug grass
+    - 'link "parasect Add to favorites #047 parasect bug grass"':
+        - /url: /pokemon/47
+        - img "parasect"
+        - button "Add to favorites"
+        - text: '#047'
+        - heading "parasect" [level=3]
+        - text: bug grass
+    - 'link "venonat Add to favorites #048 venonat bug poison"':
+        - /url: /pokemon/48
+        - img "venonat"
+        - button "Add to favorites"
+        - text: '#048'
+        - heading "venonat" [level=3]
+        - text: bug poison
+    - 'link "venomoth Add to favorites #049 venomoth bug poison"':
+        - /url: /pokemon/49
+        - img "venomoth"
+        - button "Add to favorites"
+        - text: '#049'
+        - heading "venomoth" [level=3]
+        - text: bug poison
+    - 'link "diglett Add to favorites #050 diglett ground"':
+        - /url: /pokemon/50
+        - img "diglett"
+        - button "Add to favorites"
+        - text: '#050'
+        - heading "diglett" [level=3]
+        - text: ground
+    - 'link "dugtrio Add to favorites #051 dugtrio ground"':
+        - /url: /pokemon/51
+        - img "dugtrio"
+        - button "Add to favorites"
+        - text: '#051'
+        - heading "dugtrio" [level=3]
+        - text: ground
+    - 'link "meowth Add to favorites #052 meowth normal"':
+        - /url: /pokemon/52
+        - img "meowth"
+        - button "Add to favorites"
+        - text: '#052'
+        - heading "meowth" [level=3]
+        - text: normal
+    - 'link "persian Add to favorites #053 persian normal"':
+        - /url: /pokemon/53
+        - img "persian"
+        - button "Add to favorites"
+        - text: '#053'
+        - heading "persian" [level=3]
+        - text: normal
+    - 'link "psyduck Add to favorites #054 psyduck water"':
+        - /url: /pokemon/54
+        - img "psyduck"
+        - button "Add to favorites"
+        - text: '#054'
+        - heading "psyduck" [level=3]
+        - text: water
+    - 'link "golduck Add to favorites #055 golduck water"':
+        - /url: /pokemon/55
+        - img "golduck"
+        - button "Add to favorites"
+        - text: '#055'
+        - heading "golduck" [level=3]
+        - text: water
+    - 'link "mankey Add to favorites #056 mankey fighting"':
+        - /url: /pokemon/56
+        - img "mankey"
+        - button "Add to favorites"
+        - text: '#056'
+        - heading "mankey" [level=3]
+        - text: fighting
+    - 'link "primeape Add to favorites #057 primeape fighting"':
+        - /url: /pokemon/57
+        - img "primeape"
+        - button "Add to favorites"
+        - text: '#057'
+        - heading "primeape" [level=3]
+        - text: fighting
+    - 'link "growlithe Add to favorites #058 growlithe fire"':
+        - /url: /pokemon/58
+        - img "growlithe"
+        - button "Add to favorites"
+        - text: '#058'
+        - heading "growlithe" [level=3]
+        - text: fire
+    - 'link "arcanine Add to favorites #059 arcanine fire"':
+        - /url: /pokemon/59
+        - img "arcanine"
+        - button "Add to favorites"
+        - text: '#059'
+        - heading "arcanine" [level=3]
+        - text: fire
+    - 'link "poliwag Add to favorites #060 poliwag water"':
+        - /url: /pokemon/60
+        - img "poliwag"
+        - button "Add to favorites"
+        - text: '#060'
+        - heading "poliwag" [level=3]
+        - text: water
 - button "Open Tanstack query devtools":
-  - img
+    - img
 ```

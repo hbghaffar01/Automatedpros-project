@@ -26,36 +26,38 @@ export function SearchFilters({
   onSortChange,
   showFavoritesOnly,
   onToggleFavorites,
-  onClearAll
+  onClearAll,
 }: SearchFiltersProps) {
   const handleTypeChange = (type: string) => {
     onFilterChange({
       ...filters,
-      type: type || undefined
+      type: type || undefined,
     });
   };
 
   const handleGenerationChange = (generation: string) => {
     onFilterChange({
       ...filters,
-      generation: generation || undefined
+      generation: generation || undefined,
     });
   };
 
   const handleSortChange = (value: string) => {
-    const option = SORT_OPTIONS.find(opt => 
-      `${opt.value.field}-${opt.value.order}` === value
+    const option = SORT_OPTIONS.find(
+      (opt) => `${opt.value.field}-${opt.value.order}` === value
     );
     if (option) {
       onSortChange(option.value);
     }
   };
 
-  const hasActiveFilters = filters.type || 
-                          filters.generation || 
-                          showFavoritesOnly || 
-                          searchQuery ||
-                          (sort.field !== 'id' || sort.order !== 'asc');
+  const hasActiveFilters =
+    filters.type ||
+    filters.generation ||
+    showFavoritesOnly ||
+    searchQuery ||
+    sort.field !== 'id' ||
+    sort.order !== 'asc';
 
   const clearFilters = () => {
     onClearAll();
@@ -81,9 +83,9 @@ export function SearchFilters({
           value={filters.type || ''}
           onChange={(e) => handleTypeChange(e.target.value)}
           aria-label="Filter by type"
-          options={POKEMON_TYPES.map(type => ({
+          options={POKEMON_TYPES.map((type) => ({
             label: type.charAt(0).toUpperCase() + type.slice(1),
-            value: type
+            value: type,
           }))}
         />
 
@@ -91,9 +93,9 @@ export function SearchFilters({
           label="Generation"
           value={filters.generation || ''}
           onChange={(e) => handleGenerationChange(e.target.value)}
-          options={POKEMON_GENERATIONS.map(gen => ({
+          options={POKEMON_GENERATIONS.map((gen) => ({
             label: gen.label,
-            value: gen.value
+            value: gen.value,
           }))}
         />
 
@@ -101,9 +103,9 @@ export function SearchFilters({
           label="Sort By"
           value={`${sort.field}-${sort.order}`}
           onChange={(e) => handleSortChange(e.target.value)}
-          options={SORT_OPTIONS.map(opt => ({
+          options={SORT_OPTIONS.map((opt) => ({
             label: opt.label,
-            value: `${opt.value.field}-${opt.value.order}`
+            value: `${opt.value.field}-${opt.value.order}`,
           }))}
         />
 
@@ -128,15 +130,12 @@ export function SearchFilters({
               if (filters.type) activeItems.push('Type');
               if (filters.generation) activeItems.push('Generation');
               if (showFavoritesOnly) activeItems.push('Favorites');
-              if (sort.field !== 'id' || sort.order !== 'asc') activeItems.push('Sort');
+              if (sort.field !== 'id' || sort.order !== 'asc')
+                activeItems.push('Sort');
               return `Active: ${activeItems.join(', ')}`;
             })()}
           </span>
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={clearFilters}
-          >
+          <Button variant="ghost" size="sm" onClick={clearFilters}>
             <X className="w-4 h-4 mr-1" />
             Clear all
           </Button>
