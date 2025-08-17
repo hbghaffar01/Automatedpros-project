@@ -46,7 +46,7 @@ npm --version   # Should output v9.0.0 or higher
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/automatedpros-project.git
+git clone git@github.com:hbghaffar01/Automatedpros-project.git
 cd automatedpros-project
 ```
 
@@ -164,19 +164,6 @@ vercel
 # Publish directory: dist
 ```
 
-#### Docker
-
-```dockerfile
-FROM node:18-alpine
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci --only=production
-COPY . .
-RUN npm run build
-EXPOSE 5173
-CMD ["npm", "run", "preview"]
-```
-
 ## 📁 Project Structure
 
 ```
@@ -214,7 +201,7 @@ automatedpros-project/
 | ------------ | ------- | -------------- |
 | React        | 19.1.1  | UI Framework   |
 | TypeScript   | 5.8.3   | Type Safety    |
-| Vite         | 5.4.0   | Build Tool     |
+| Vite         | 7.1.2   | Build Tool     |
 | Tailwind CSS | 3.4.17  | Styling        |
 | ESLint       | 9.33.0  | Code Quality   |
 | PostCSS      | 8.5.6   | CSS Processing |
